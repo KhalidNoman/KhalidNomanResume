@@ -1,23 +1,32 @@
-<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-  <div>
-    <a class="navbar-brand" [routerLink]="['/']">Khalid Noman</a>
-    <ul class="navbar-nav flex-grow">
-
-      <li nav-item>
-        <a routerLink="main-resume" class="nav-link">
-          Main Resume
-        </a>
-      </li>
-
-      <li nav-item>
-        <a routerLink="projects" class="nav-link">
-          Projects
-        </a>
-      </li>
-
-    </ul>
-  </div>
-</nav>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Khalid Noman</a>
+      <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target=".navbar-collapse"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="isExpanded"
+      (click)="toggle()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+    [ngClass]="{ show: isExpanded }">
+      <ul class="navbar-nav flex-grow">
+        <li class="nav-item">
+          <a routerLink="main-resume" class="nav-link">Main Resume</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="projects" class="nav-link">Projects</a>
+        </li>
+      </ul>
+    </div>
+    </div>
+  </nav>
+</header>
 <div class="mycontainer">
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 </div>
