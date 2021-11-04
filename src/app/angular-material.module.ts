@@ -5,6 +5,11 @@ import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatButtonModule} from '@angular/material/button'
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatIconModule } from '@angular/material/icon'
+import { ClipboardModule } from '@angular/cdk/clipboard'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatListModule } from '@angular/material/list'
+
 
 @NgModule({
     imports:[
@@ -13,7 +18,11 @@ import { MatIconModule } from '@angular/material/icon'
         MatFormFieldModule,
         MatButtonModule,
         MatToolbarModule,
-        MatIconModule
+        MatIconModule,
+        ClipboardModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatListModule
     ],
     exports:[
         MatTableModule,
@@ -21,7 +30,11 @@ import { MatIconModule } from '@angular/material/icon'
         MatFormFieldModule,
         MatButtonModule,
         MatToolbarModule,
-        MatIconModule
+        MatIconModule,
+        ClipboardModule,
+        MatSnackBarModule,
+        MatSidenavModule,
+        MatListModule
     ]
 
 })

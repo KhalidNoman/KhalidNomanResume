@@ -32,4 +32,22 @@ a.navbar-brand {
     .mat-button{
       color: white;
     }
+    .a{
+      color: white;
+      text-decoration: none;
+    }
   }
+  .crm-navigation-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+  }
+
+  .custom-sidenav-container { 
+    position: inherit;
+    height: 100%;
+    display: inherit;
+    transform: inherit; 
+}

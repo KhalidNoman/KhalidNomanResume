@@ -1,53 +1,37 @@
-<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-  <div fxFlex="20" fxShow="true" fxHide.gt.sm="true">
-    <button mat-icon-button>
-      <mat-icon>
-        menu
-      </mat-icon>
-    </button>
-    <span>Khalid Noman</span>
-  </div>
-  <div fxFlex fxLayout="row" fxLayoutAlign="end center" class="toolbar-buttons">
-    <a mat-button routerLink='./main-resume'>Main Resume</a>
-    <a mat-button routerLink='./projects'>Projects</a>
-    <button mat-button href='tel:+966553314600' data-rel="external">
-      <mat-icon>phone</mat-icon>
-    </button>
-    <button mat-button href="mailto:ksnoman@live.com" data-rel="external">
-      <mat-icon>email</mat-icon>
-    </button>
-  </div>
-</mat-toolbar>
+<div>
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxFlex="20" fxShow="true" fxHide.gt.sm="true" class="toolbar-buttons">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>
+          menu
+        </mat-icon>
+      </button>
+      <a class="a" routerLink="./">Khalid Noman</a>
+    </div>
+    <div fxFlex fxLayout="row" fxLayoutAlign="end center" class="toolbar-buttons">
+      <a mat-button routerLink='./main-resume'>Main Resume</a>
+      <a mat-button routerLink='./projects'>Projects</a>
+      <a mat-button href='tel:+966553314600' data-rel="external" [cdkCopyToClipboard]="copied" (click)="copyInfo(true)">
+        <mat-icon>phone</mat-icon>
+      </a>
+      <a mat-button href="mailto:ksnoman@live.com" data-rel="external" [cdkCopyToClipboard]="copied"
+        (mouseup)="copyInfo(false)">
+        <mat-icon>email</mat-icon>
+      </a>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container class="custom-sidenav-container">
+    <mat-sidenav color="primary" fxLayout="column" mode="push" #sidenav [fixedInViewport]="true" >
+      
+      <mat-nav-list fxLayout="column">
+        <a mat-list-item (click)="sidenav.toggle()"> <mat-icon>close</mat-icon>Close</a>
+        <a mat-list-item routerLink="./main-resume"><mat-icon>home</mat-icon>Main Resume</a>
+        <a mat-list-item routerLink="./projects"><mat-icon>assignment</mat-icon>Projects</a>
+      </mat-nav-list>
 
-<header>
-  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-    <div class="container">
-      <a class="navbar-brand" [routerLink]="['/']">Khalid Noman</a>
-      <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target=".navbar-collapse"
-      aria-label="Toggle navigation"
-      [attr.aria-expanded]="isExpanded"
-      (click)="toggle()"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-    [ngClass]="{ show: isExpanded }">
-      <ul class="navbar-nav flex-grow">
-        <li class="nav-item">
-          <a routerLink="main-resume" class="nav-link">Main Resume</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="projects" class="nav-link">Projects</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
-</header>
-<div class="mycontainer">
-<router-outlet></router-outlet>
+    </mat-sidenav>
+    <mat-sidenav-content class="mycontainer" style="height: 93vh;">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

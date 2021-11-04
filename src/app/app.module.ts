@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AngularMaterialModule } from './angular-material.module';
 
@@ -20,7 +21,8 @@ import { ProjectsComponent } from './projects/projects.component';
     BrowserModule,
     AppRoutingModule,
     AngularMaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

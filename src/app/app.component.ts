@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,36 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Resume';
 
-  isExpanded = false;
+  isFolded = false;
+  myDetails={
+    phone:'+966553314600',
+    email:"ksnoman@live.com"
+  }
+  copied = "";
+  
+  
+  constructor(private _snackbar: MatSnackBar){
+
+  }
+
 
   collapse() {
-    this.isExpanded = false;
+    this.isFolded = false;
   }
 
   toggle() {
-    this.isExpanded = !this.isExpanded;
+    this.isFolded = !this.isFolded;
   }
+
+  copyInfo( phone: any){
+    if(phone){
+      this._snackbar.open("Phone number was copied to clipboard", "Dismiss", { duration:3000})
+      this.copied = this.myDetails.phone;
+    }
+    else {
+      this._snackbar.open("Email was copied to clipboard", "Dismiss", { duration:3000})
+      this.copied = this.myDetails.email
+    }  
+  }
+
 }
