@@ -23,19 +23,15 @@ export class AppComponent {
   
   
   constructor(private _snackbar: MatSnackBar){
-    if (window.screen.width < 480) { // 768px portrait
+    if (window.screen.width < 480) {
       this.mobile = true;
     } else this.mobile=false;
-  }
-
-  ngOnInIt(){
   }
 
   onResize($event:any){
-    if (window.screen.width < 480) { // 768px portrait
+    if (window.screen.width < 480) {
       this.mobile = true;
     } else this.mobile=false;
-    console.log("mobile" + this.mobile)
   }
 
   copyInfo( phone: any){
