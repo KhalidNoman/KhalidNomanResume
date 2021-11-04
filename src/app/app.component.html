@@ -1,14 +1,14 @@
-<div>
-  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+ <div (window:resize)="onResize($event)">
+ <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
     <div fxFlex="20" fxShow="true" fxHide.gt.sm="true" class="toolbar-buttons">
-      <button mat-icon-button (click)="sidenav.toggle()">
+      <button mat-icon-button (click)="sidenav.toggle()" *ngIf="mobile">
         <mat-icon>
           menu
         </mat-icon>
       </button>
       <a class="a" routerLink="./">Khalid Noman</a>
     </div>
-    <div fxFlex fxLayout="row" fxLayoutAlign="end center" class="toolbar-buttons">
+    <div fxFlex fxLayout="row" fxLayoutAlign="end center" class="toolbar-buttons" *ngIf="!mobile">
       <a mat-button routerLink='./main-resume'>Main Resume</a>
       <a mat-button routerLink='./projects'>Projects</a>
       <a mat-button href='tel:+966553314600' data-rel="external" [cdkCopyToClipboard]="copied" (click)="copyInfo(true)">
@@ -21,7 +21,7 @@
     </div>
   </mat-toolbar>
   <mat-sidenav-container class="custom-sidenav-container">
-    <mat-sidenav color="primary" fxLayout="column" mode="push" #sidenav [fixedInViewport]="true" >
+    <mat-sidenav color="primary" fxLayout="column" mode="over" #sidenav [fixedInViewport]="true" >
       
       <mat-nav-list fxLayout="column">
         <a mat-list-item (click)="sidenav.toggle()"> <mat-icon>close</mat-icon>Close</a>
@@ -34,4 +34,4 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-</div>
+ </div>

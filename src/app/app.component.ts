@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent {
   title = 'Resume';
 
-  isFolded = false;
+  mobile = false;
   myDetails={
     phone:'+966553314600',
     email:"ksnoman@live.com"
@@ -17,17 +21,21 @@ export class AppComponent {
   copied = "";
   
   
+  
   constructor(private _snackbar: MatSnackBar){
-
+    if (window.screen.width < 480) { // 768px portrait
+      this.mobile = true;
+    } else this.mobile=false;
   }
 
-
-  collapse() {
-    this.isFolded = false;
+  ngOnInIt(){
   }
 
-  toggle() {
-    this.isFolded = !this.isFolded;
+  onResize($event:any){
+    if (window.screen.width < 480) { // 768px portrait
+      this.mobile = true;
+    } else this.mobile=false;
+    console.log("mobile" + this.mobile)
   }
 
   copyInfo( phone: any){
