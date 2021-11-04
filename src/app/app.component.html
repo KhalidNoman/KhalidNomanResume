@@ -1,3 +1,24 @@
+<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxFlex="20" fxShow="true" fxHide.gt.sm="true">
+    <button mat-icon-button>
+      <mat-icon>
+        menu
+      </mat-icon>
+    </button>
+    <span>Khalid Noman</span>
+  </div>
+  <div fxFlex fxLayout="row" fxLayoutAlign="end center" class="toolbar-buttons">
+    <a mat-button routerLink='./main-resume'>Main Resume</a>
+    <a mat-button routerLink='./projects'>Projects</a>
+    <button mat-button href='tel:+966553314600' data-rel="external">
+      <mat-icon>phone</mat-icon>
+    </button>
+    <button mat-button href="mailto:ksnoman@live.com" data-rel="external">
+      <mat-icon>email</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
 <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
